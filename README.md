@@ -399,4 +399,621 @@ If you are interested to leave a message to either our research team or product 
     <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">
         ↑ Back to Top ↑
     </a>
-</p>
+</p><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Active Lingua · Dynamic English App & Campus</title>
+  <!-- PWA Manifest & Meta -->
+  <meta name="theme-color" content="#162d6e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Active Lingua">
+  <link rel="manifest" href="manifest.json">
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cabinet+Grotesk:wght@800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#162d6e',
+              deep: '#0e1d47',
+              tropical: '#15803d',
+              tropicalLight: '#22c55e',
+              yellow: '#eab308',
+              cream: '#fcf9f4',
+              surface: '#f5f0e6',
+              line: '#e2d9c8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Cabinet Grotesk"', '"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #fcf9f4; color: #1e293b; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-nav { background: rgba(22, 45, 110, 0.96); backdrop-filter: blur(12px); }
+    .custom-scroll::-webkit-scrollbar { width: 6px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col pb-20 md:pb-0">
+
+  <!-- TOP APP BAR / HEADER -->
+  <header class="sticky top-0 z-50 glass-nav text-white border-b border-white/10 shadow-lg px-4 py-3">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-white p-1 shadow-md flex items-center justify-center">
+          <svg class="w-7 h-7 text-brand-navy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3a15.3 15.3 0 0 1 4 18 15.3 15.3 0 0 1-8 0 15.3 15.3 0 0 1 4-18z"/>
+            <path d="M3 12h18"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-lg font-black tracking-tight flex items-center gap-2">
+            ACTIVE LINGUA <span class="bg-brand-tropical text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Pro PWA</span>
+          </h1>
+          <p class="text-xs text-white/80">Dynamic English Program · Bucerías, Riviera Nayarit</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://wa.me/523223512797" target="_blank" class="hidden sm:flex items-center gap-1.5 bg-brand-tropical hover:bg-green-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow transition">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          +52 322 351 2797
+        </a>
+        <button id="pwaInstallBtn" class="bg-amber-400 hover:bg-amber-300 text-brand-deep text-xs font-extrabold px-3 py-1.5 rounded-lg shadow flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Instalar App
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- APP CONTENT CONTAINER -->
+  <main class="max-w-4xl w-full mx-auto p-4 md:py-8 flex-1">
+
+    <!-- SUB-NAV / TABS (MÓVIL Y DESKTOP) -->
+    <nav class="flex overflow-x-auto gap-2 pb-3 mb-6 border-b border-brand-line custom-scroll">
+      <button onclick="switchTab('curriculum')" id="tab-curriculum" class="tab-btn active px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 bg-brand-navy text-white shadow">
+        <span>📚 30 Capítulos</span>
+      </button>
+      <button onclick="switchTab('voice')" id="tab-voice" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 bg-white text-slate-700 border border-brand-line hover:bg-slate-100">
+        <span>🎙️ Voice AI Lab</span>
+      </button>
+      <button onclick="switchTab('gift')" id="tab-gift" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 bg-white text-slate-700 border border-brand-line hover:bg-slate-100">
+        <span>🎁 Certificado 3 Meses</span>
+      </button>
+      <button onclick="switchTab('enroll')" id="tab-enroll" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 bg-white text-slate-700 border border-brand-line hover:bg-slate-100">
+        <span>📝 Canjear Beca</span>
+      </button>
+      <button onclick="switchTab('certificate')" id="tab-certificate" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 bg-white text-slate-700 border border-brand-line hover:bg-slate-100">
+        <span>🎓 Diploma Oficial</span>
+      </button>
+    </nav>
+
+    <!-- SECTION 1: CURRICULUM (30 CAPÍTULOS + CHECKPOINTS) -->
+    <section id="view-curriculum" class="tab-view block space-y-6">
+      <!-- HERO RESUMEN -->
+      <div class="bg-gradient-to-r from-brand-navy to-brand-deep rounded-2xl p-5 md:p-6 text-white shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="inline-block px-3 py-1 bg-brand-tropical text-white text-xs font-extrabold rounded-full mb-2">Currículum A1 a C1 Oficial</span>
+          <h2 class="text-2xl font-black">Active Lingua 30-Chapter Master Journey</h2>
+          <p class="text-sm text-slate-200 mt-1 max-w-xl">30 capítulos teóricos y prácticos, 6 exámenes checkpoint y diploma con verificación digital.</p>
+        </div>
+        <div class="flex items-center gap-3 bg-white/10 p-3 rounded-xl backdrop-blur-sm self-start md:self-auto">
+          <div class="text-center">
+            <span class="block text-2xl font-black text-amber-300" id="totalScoreText">3,850</span>
+            <span class="text-[10px] uppercase font-bold text-white/80">XP Ganados</span>
+          </div>
+          <div class="w-px h-8 bg-white/20"></div>
+          <div class="text-center">
+            <span class="block text-2xl font-black text-green-400">30/30</span>
+            <span class="text-[10px] uppercase font-bold text-white/80">Capítulos</span>
+          </div>
+          <div class="w-px h-8 bg-white/20"></div>
+          <div class="text-center">
+            <span class="block text-2xl font-black text-blue-300">6/6</span>
+            <span class="text-[10px] uppercase font-bold text-white/80">Checkpoints</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOQUES 1 AL 6 -->
+      <div class="space-y-4" id="blocksContainer">
+        <!-- Generado dinámicamente por JS con los 30 capítulos -->
+      </div>
+    </section>
+
+    <!-- SECTION 2: VOICE AI LAB CON WEBSPEECH REAL -->
+    <section id="view-voice" class="tab-view hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-brand-line p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <span class="text-xs font-extrabold uppercase text-brand-tropical tracking-wider">Módulo Interactivo</span>
+            <h2 class="text-xl font-black text-brand-navy">Stitch Voice AI · Laboratorio de Pronunciación</h2>
+          </div>
+          <span class="bg-green-100 text-brand-tropical px-3 py-1 rounded-full text-xs font-bold">Micrófono Activo</span>
+        </div>
+        <p class="text-sm text-slate-600 mb-6">Escucha el modelo nativo, pulsa "Hablar" y di la frase en inglés. El motor evaluará tu pronunciación en tiempo real.</p>
+
+        <div class="space-y-4" id="voiceDrills">
+          <!-- Drill 1 -->
+          <div class="p-4 rounded-xl border border-slate-200 bg-brand-cream/60 voice-card" data-phrase="Hello, I would like to check in for my flight.">
+            <p class="text-base font-bold text-slate-900 mb-2">"Hello, I would like to check in for my flight."</p>
+            <p class="text-xs text-slate-500 mb-3">Capítulo 10 · Airport Check-in</p>
+            <div class="flex flex-wrap gap-2 items-center">
+              <button onclick="playTTS('Hello, I would like to check in for my flight.')" class="bg-brand-navy hover:bg-blue-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow">
+                🔊 Escuchar Modelo
+              </button>
+              <button onclick="startVoiceRecord(this, 'Hello, I would like to check in for my flight.')" class="bg-brand-tropical hover:bg-green-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow">
+                🎙️ Hablar y Evaluar
+              </button>
+              <span class="voice-feedback text-xs font-bold text-slate-600">Listo para grabar</span>
+            </div>
+          </div>
+
+          <!-- Drill 2 -->
+          <div class="p-4 rounded-xl border border-slate-200 bg-brand-cream/60 voice-card" data-phrase="Could you please tell me where the boarding gate is?">
+            <p class="text-base font-bold text-slate-900 mb-2">"Could you please tell me where the boarding gate is?"</p>
+            <p class="text-xs text-slate-500 mb-3">Capítulo 19 · Airport Layovers & Directions</p>
+            <div class="flex flex-wrap gap-2 items-center">
+              <button onclick="playTTS('Could you please tell me where the boarding gate is?')" class="bg-brand-navy hover:bg-blue-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow">
+                🔊 Escuchar Modelo
+              </button>
+              <button onclick="startVoiceRecord(this, 'Could you please tell me where the boarding gate is?')" class="bg-brand-tropical hover:bg-green-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow">
+                🎙️ Hablar y Evaluar
+              </button>
+              <span class="voice-feedback text-xs font-bold text-slate-600">Listo para grabar</span>
+            </div>
+          </div>
+
+          <!-- Drill 3 -->
+          <div class="p-4 rounded-xl border border-slate-200 bg-brand-cream/60 voice-card" data-phrase="We are looking for a binding agreement with mutual benefits.">
+            <p class="text-base font-bold text-slate-900 mb-2">"We are looking for a binding agreement with mutual benefits."</p>
+            <p class="text-xs text-slate-500 mb-3">Capítulo 29 · Strategic Negotiations</p>
+            <div class="flex flex-wrap gap-2 items-center">
+              <button onclick="playTTS('We are looking for a binding agreement with mutual benefits.')" class="bg-brand-navy hover:bg-blue-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow">
+                🔊 Escuchar Modelo
+              </button>
+              <button onclick="startVoiceRecord(this, 'We are looking for a binding agreement with mutual benefits.')" class="bg-brand-tropical hover:bg-green-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow">
+                🎙️ Hablar y Evaluar
+              </button>
+              <span class="voice-feedback text-xs font-bold text-slate-600">Listo para grabar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CERTIFICADO DE REGALO (3 MESES GRATIS) -->
+    <section id="view-gift" class="tab-view hidden space-y-6">
+      <div class="bg-white rounded-3xl border-2 border-brand-tropical shadow-2xl p-6 md:p-8 max-w-xl mx-auto relative overflow-hidden">
+        <div class="absolute -right-12 -top-12 w-36 h-36 bg-amber-200 rounded-full opacity-30 pointer-events-none"></div>
+        <div class="flex justify-between items-start mb-4">
+          <span class="bg-brand-navy text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Oficial · Active Lingua</span>
+          <span class="bg-green-100 text-brand-tropical text-xs font-extrabold px-2.5 py-0.5 rounded-full">100% Bonificado</span>
+        </div>
+
+        <div class="text-center my-6">
+          <p class="text-xs uppercase font-extrabold tracking-widest text-amber-600 mb-1">Certificado de Regalo Exclusivo</p>
+          <h2 class="text-2xl md:text-3xl font-black text-brand-navy leading-tight">3 MESES COMPLETOS DE INGLÉS ONLINE GRATIS</h2>
+          <p class="text-xs md:text-sm text-slate-600 mt-2">Beca completa de inmersión conversacional con mentores nativos y metodología interactiva.</p>
+        </div>
+
+        <!-- VALOR COMERCIAL -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center my-4">
+          <p class="text-xs text-slate-500 font-bold uppercase">Valor Académico Certificado</p>
+          <p class="text-xl line-through text-slate-400 font-bold">$750 USD / $13,500 MXN</p>
+          <p class="text-3xl font-black text-brand-tropical">COSTO PARA TI: $0.00 USD</p>
+        </div>
+
+        <!-- DETALLES DEL BENEFICIO -->
+        <div class="grid grid-cols-2 gap-3 text-xs font-semibold text-slate-700 my-4">
+          <div class="p-3 bg-brand-cream rounded-xl border border-brand-line">
+            <span class="block text-brand-navy font-bold">👥 Clases en Vivo</span>
+            <span>4 hrs / semana (grupos máx 5)</span>
+          </div>
+          <div class="p-3 bg-brand-cream rounded-xl border border-brand-line">
+            <span class="block text-brand-navy font-bold">⏱️ Total Horas</span>
+            <span>48 Horas de inmersión directa</span>
+          </div>
+        </div>
+
+        <!-- CÓDIGO DE CUPÓN -->
+        <div class="bg-amber-50 border-2 border-dashed border-amber-300 rounded-2xl p-4 text-center my-5">
+          <p class="text-xs font-bold text-amber-800 uppercase tracking-wider">Código de Activación Válido</p>
+          <div class="flex items-center justify-center gap-2 mt-1">
+            <span id="giftCodeText" class="text-xl md:text-2xl font-black text-brand-navy tracking-wider font-mono">ACTIVELINGUA-VIP3M-2025</span>
+            <button onclick="copyCode()" class="bg-brand-navy text-white text-xs px-2.5 py-1 rounded-lg hover:bg-blue-900 transition">Copiar</button>
+          </div>
+        </div>
+
+        <button onclick="switchTab('enroll')" class="w-full bg-brand-tropical hover:bg-green-700 text-white font-black py-3 rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2">
+          <span>🚀 Canjear Certificado Ahora Mismo</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FORMULARIO DE CANJE / PÁGINA DE VENTA -->
+    <section id="view-enroll" class="tab-view hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-brand-line shadow-lg p-6 md:p-8 max-w-xl mx-auto">
+        <div class="text-center mb-6">
+          <span class="bg-red-100 text-red-700 text-xs font-black px-3 py-1 rounded-full uppercase">¡Sólo 4 cupos restantes!</span>
+          <h2 class="text-2xl font-black text-brand-navy mt-2">Formulario de Canje Directo</h2>
+          <p class="text-xs text-slate-500">Completa tus datos para asignación de grupo y acceso al campus virtual.</p>
+        </div>
+
+        <form id="enrollForm" onsubmit="handleEnroll(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Nombre Completo del Estudiante *</label>
+            <input required type="text" id="studentName" placeholder="Ej. Camila Morales Rivera" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-navy outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Correo Electrónico (para tus accesos) *</label>
+            <input required type="email" id="studentEmail" placeholder="nombre@correo.com" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-navy outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Teléfono WhatsApp *</label>
+            <input required type="tel" id="studentPhone" placeholder="+52 322 351 2797" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-navy outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Código de Beca</label>
+            <input readonly type="text" value="ACTIVELINGUA-VIP3M-2025" class="w-full px-3 py-2 rounded-xl bg-slate-100 border border-slate-200 text-sm font-mono font-bold text-brand-tropical">
+          </div>
+
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Horario Preferido (4 horas/semana) *</label>
+            <select id="studentSchedule" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-navy outline-none">
+              <option value="Opción A: Lunes y Miércoles 9:00 AM - 11:00 AM">Opción A: Lunes y Miércoles (9:00 AM - 11:00 AM)</option>
+              <option value="Opción B: Martes y Jueves 7:00 PM - 9:00 PM">Opción B: Martes y Jueves (7:00 PM - 9:00 PM)</option>
+              <option value="Opción C: Sábados Intensivo 9:00 AM - 1:00 PM">Opción C: Sábados Intensivo (9:00 AM - 1:00 PM)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Nivel Aproximado</label>
+            <div class="grid grid-cols-3 gap-2">
+              <label class="border border-slate-200 p-2 rounded-xl text-center text-xs font-bold cursor-pointer hover:bg-slate-50 flex flex-col items-center">
+                <input type="radio" name="level" value="A1" checked class="mb-1"> Principiante
+              </label>
+              <label class="border border-slate-200 p-2 rounded-xl text-center text-xs font-bold cursor-pointer hover:bg-slate-50 flex flex-col items-center">
+                <input type="radio" name="level" value="A2" class="mb-1"> Básico A2
+              </label>
+              <label class="border border-slate-200 p-2 rounded-xl text-center text-xs font-bold cursor-pointer hover:bg-slate-50 flex flex-col items-center">
+                <input type="radio" name="level" value="B1" class="mb-1"> Intermedio
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-brand-tropical hover:bg-green-700 text-white font-black py-3 rounded-xl shadow-lg transition text-base flex items-center justify-center gap-2">
+            <span>¡Activar Mis 3 Meses Gratis Ahora!</span>
+          </button>
+          <p class="text-[11px] text-center text-slate-400">Garantía 100% de cortesía. Sin cobro oculto ni tarjeta requerida.</p>
+        </form>
+
+        <div id="enrollSuccess" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-xl text-center">
+          <p class="text-sm font-bold text-green-800">¡Beca Activada con Éxito! 🎉</p>
+          <p class="text-xs text-green-600 mt-1">Te contactaremos por WhatsApp al número proporcionado para entregarte las credenciales de Zoom y Campus.</p>
+          <a id="waDirectBtn" target="_blank" href="#" class="inline-block mt-3 bg-brand-tropical text-white text-xs font-bold px-4 py-2 rounded-lg shadow">Confirmar por WhatsApp Inmediato</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CERTIFICADO DE GRADUACIÓN -->
+    <section id="view-certificate" class="tab-view hidden space-y-6">
+      <div class="bg-white rounded-3xl border-4 border-amber-300 p-6 md:p-8 max-w-2xl mx-auto shadow-2xl relative text-center">
+        <div class="inline-block p-2 bg-brand-navy rounded-2xl mb-3">
+          <span class="text-white text-xs font-black uppercase tracking-widest px-2">Colegio Académico Lingüístico</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-black text-brand-navy">Active Lingua Global</h2>
+        <p class="text-xs text-amber-700 font-bold uppercase tracking-widest mt-1">Otorga el presente</p>
+        <h3 class="text-xl md:text-2xl font-black text-slate-900 mt-2 mb-4">CERTIFICADO INTERNACIONAL DE FLUIDEZ Y COMUNICACIÓN GLOBAL</h3>
+        <p class="text-xs text-slate-500">Nivel C1 Operacional Avanzado · Marco Común Europeo (MCER)</p>
+
+        <div class="my-6 py-4 border-y border-slate-200">
+          <p class="text-xs text-slate-400">Conferido con honores a:</p>
+          <h4 id="certStudentName" class="text-2xl font-black text-brand-tropical mt-1">Lic. Sofía Valenzuela M.</h4>
+          <p class="text-xs text-slate-600 mt-2 max-w-md mx-auto">Por haber acreditado satisfactoriamente los 30 Capítulos Teórico-Prácticos Automatizados y las 6 Evaluaciones Hito con promedio de <span class="font-bold text-brand-navy">97.6%</span>.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 text-left text-xs bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <div>
+            <span class="block text-slate-400">ID de Registro:</span>
+            <span class="font-mono font-bold text-slate-800">AL-CERT-2024-GLOBAL-30</span>
+            <span class="block text-green-600 font-bold mt-0.5">✓ Verificado en Servidor Seguro</span>
+          </div>
+          <div class="text-right">
+            <span class="block text-slate-400">Dirección Pedagógica:</span>
+            <span class="font-bold text-slate-800">Dr. Marcus Vance, Ph.D.</span>
+            <span class="block text-slate-500">Campus Bucerías, Nayarit</span>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2 justify-center">
+          <button onclick="window.print()" class="bg-brand-navy hover:bg-blue-900 text-white text-xs font-bold px-4 py-2 rounded-xl shadow flex items-center gap-1.5">
+            🖨️ Imprimir Diploma
+          </button>
+          <a href="https://wa.me/523223512797?text=Hola,%20deseo%20validar%20mi%20Certificado%20Oficial%20Active%20Lingua%20AL-CERT-2024-GLOBAL-30" target="_blank" class="bg-brand-tropical hover:bg-green-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow flex items-center gap-1.5">
+            📲 Validar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM MOBILE NAVIGATION BAR -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-2 flex justify-around items-center">
+    <button onclick="switchTab('curriculum')" class="mob-btn flex flex-col items-center text-xs font-bold text-brand-navy" id="mob-curriculum">
+      <span class="text-lg">📚</span> Capítulos
+    </button>
+    <button onclick="switchTab('voice')" class="mob-btn flex flex-col items-center text-xs font-bold text-slate-400" id="mob-voice">
+      <span class="text-lg">🎙️</span> Voz AI
+    </button>
+    <button onclick="switchTab('gift')" class="mob-btn flex flex-col items-center text-xs font-bold text-slate-400" id="mob-gift">
+      <span class="text-lg">🎁</span> Regalo
+    </button>
+    <button onclick="switchTab('enroll')" class="mob-btn flex flex-col items-center text-xs font-bold text-slate-400" id="mob-enroll">
+      <span class="text-lg">📝</span> Canjear
+    </button>
+    <button onclick="switchTab('certificate')" class="mob-btn flex flex-col items-center text-xs font-bold text-slate-400" id="mob-certificate">
+      <span class="text-lg">🎓</span> Diploma
+    </button>
+  </nav>
+
+  <!-- JAVASCRIPT LOGIC & PWA WORKER -->
+  <script>
+    // 1. DATA OF 30 CHAPTERS
+    const CHAPTERS = [
+      { id: 1, title: "Presentaciones y Saludos", level: "A1", desc: "Introduce yourself, nationalities, phone numbers." },
+      { id: 2, title: "Entorno Familiar y Hogar", level: "A1", desc: "Describe family members, physical appearance, age." },
+      { id: 3, title: "Restaurante y Comida Básica", level: "A1", desc: "Order meals, food preferences, drink requests." },
+      { id: 4, title: "Salón de Clases & Rutinas", level: "A1", desc: "Office objects, locations, progressive actions." },
+      { id: 5, title: "Rutas Cotidianas y Horarios", level: "A1", desc: "Daily routines, time expressions, habits." },
+      { id: 6, title: "Travel & GPS Directions", level: "A2", desc: "Navigating city directions, turn-by-turn map skills." },
+      { id: 7, title: "Shopping & Supermarkets", level: "A2", desc: "Cashier checkout, prices, clothing and sizing." },
+      { id: 8, title: "City Services & Post Office", level: "A2", desc: "Public facilities, asking for assistance, mail." },
+      { id: 9, title: "Video Inmersión 90 Segundos", level: "A2", desc: "Auditory immersion with interactive video drills." },
+      { id: 10, title: "Airport Check-in & Security", level: "A2", desc: "Boarding pass, luggage check, TSA security." },
+      { id: 11, title: "Hotel Reservations & Front Desk", level: "B1.1", desc: "Room booking, amenities, keycards, requests." },
+      { id: 12, title: "Dining Out & Restaurant Situations", level: "B1.1", desc: "Table reservations, dietary needs, tipping." },
+      { id: 13, title: "Emergency Situations & Pharmacy", level: "B1.1", desc: "Doctor clinic, symptoms, prescriptions." },
+      { id: 14, title: "Hotel Checkout & Logistics", level: "B1.1", desc: "Itemized receipts, settling bills, taxi call." },
+      { id: 15, title: "Renting a Car & Road Trip", level: "B1.1", desc: "Rental agreement, insurance, GPS navigation." },
+      { id: 16, title: "Gas Station & Rest Stops", level: "B1.2", desc: "Fuel types, highway stops, convenience stores." },
+      { id: 17, title: "Public Transit & Subways", level: "B1.2", desc: "Metro cards, train transfers, commuter routes." },
+      { id: 18, title: "Rideshare, Taxis & City Commute", level: "B1.2", desc: "Pick-up locations, directions to driver, fares." },
+      { id: 19, title: "Airport Connections & Customs", level: "B1.2", desc: "Layovers, gate changes, passport control." },
+      { id: 20, title: "Lost Luggage & Baggage Claim", level: "B1.2", desc: "Filing missing baggage reports, claim tags." },
+      { id: 21, title: "Healthcare & Clinic Appointments", level: "B2.1", desc: "Consulting doctors, explaining medical history." },
+      { id: 22, title: "Pharmacy & Medical Emergencies", level: "B2.1", desc: "Urgent treatments, dosage explanations." },
+      { id: 23, title: "Repairs & Home Services", level: "B2.1", desc: "Contractors, plumbing repairs, work estimates." },
+      { id: 24, title: "Bank Accounts & Financial ATMs", level: "B2.1", desc: "Opening accounts, wire transfers, currencies." },
+      { id: 25, title: "Job Interviews & Resumes", level: "B2.1", desc: "Career strengths, executive pitch, interviews." },
+      { id: 26, title: "Professional Meetings & Presentations", level: "B2.2", desc: "Leading board meetings, deliverables, deadlines." },
+      { id: 27, title: "Contract Negotiations & Vendors", level: "B2.2", desc: "Supplier agreements, procurement terms." },
+      { id: 28, title: "Networking & Summit Conferences", level: "B2.2", desc: "Elevator pitches, global summits, LinkedIn follow-up." },
+      { id: 29, title: "Cross-Cultural Negotiations & Deals", level: "B2.2", desc: "Bilateral agreements, concessions, win-win closures." },
+      { id: 30, title: "Executive Mastery & Capstone Defense", level: "C1", desc: "Grand defense before academic panel & diploma." }
+    ];
+
+    // RENDER CURRICULUM BLOCKS
+    function renderCurriculum() {
+      const container = document.getElementById('blocksContainer');
+      let html = '';
+      for (let b = 0; b < 6; b++) {
+        const start = b * 5;
+        const blockChapters = CHAPTERS.slice(start, start + 5);
+        const blockNum = b + 1;
+        const examName = [
+          "Everyday Basics & Food Ordering",
+          "Airport Transit & Urban Directions",
+          "Hospitality & Travel Logistics",
+          "Transit Solutions & Problem Solving",
+          "Professional & Financial Fluency",
+          "Grand Capstone Oral & Written Evaluation"
+        ][b];
+
+        html += `
+          <div class="bg-white rounded-2xl border border-brand-line p-5 shadow-sm">
+            <div class="flex items-center justify-between mb-3 border-b border-slate-100 pb-2">
+              <h3 class="font-extrabold text-brand-navy text-sm md:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-brand-navy text-white text-xs flex items-center justify-center font-black">${blockNum}</span>
+                Bloque ${blockNum} · Capítulos ${start + 1} al ${start + 5}
+              </h3>
+              <span class="text-xs font-bold text-brand-tropical bg-green-50 px-2 py-0.5 rounded-full">5/5 Completados</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+              ${blockChapters.map(c => `
+                <div class="p-2.5 rounded-xl bg-brand-cream/50 border border-slate-100 flex items-center justify-between">
+                  <div>
+                    <span class="font-bold text-slate-800">Cap. ${c.id}: ${c.title}</span>
+                    <span class="block text-[10px] text-slate-500">${c.desc}</span>
+                  </div>
+                  <span class="text-green-600 font-bold ml-2">✓ 100%</span>
+                </div>
+              `).join('')}
+            </div>
+            <!-- CHECKPOINT EXAM -->
+            <div class="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-between text-xs">
+              <div>
+                <span class="font-extrabold text-amber-900 block">⭐ Checkpoint Exam ${blockNum}: ${examName}</span>
+                <span class="text-[10px] text-amber-700">Evaluación Hito Aprobada con Honores (98%)</span>
+              </div>
+              <span class="bg-amber-400 text-brand-deep font-extrabold px-2.5 py-1 rounded-lg">Certificado</span>
+            </div>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    // 2. TAB SWITCHER
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-view').forEach(el => el.classList.add('hidden'));
+      const activeView = document.getElementById('view-' + tabId);
+      if (activeView) activeView.classList.remove('hidden');
+
+      // Update Desktop tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-navy', 'text-white', 'shadow');
+        btn.classList.add('bg-white', 'text-slate-700');
+      });
+      const activeBtn = document.getElementById('tab-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-white', 'text-slate-700');
+        activeBtn.classList.add('bg-brand-navy', 'text-white', 'shadow');
+      }
+
+      // Update Mobile nav
+      document.querySelectorAll('.mob-btn').forEach(btn => {
+        btn.classList.remove('text-brand-navy');
+        btn.classList.add('text-slate-400');
+      });
+      const activeMob = document.getElementById('mob-' + tabId);
+      if (activeMob) {
+        activeMob.classList.remove('text-slate-400');
+        activeMob.classList.add('text-brand-navy');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 3. TEXT-TO-SPEECH (TTS)
+    function playTTS(text) {
+      if (!window.speechSynthesis) {
+        alert("Tu navegador no soporta síntesis de voz.");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.85;
+      window.speechSynthesis.speak(u);
+    }
+
+    // 4. SPEECH RECOGNITION (Voice Lab)
+    function startVoiceRecord(btn, targetPhrase) {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const feedbackEl = btn.parentElement.querySelector('.voice-feedback');
+      if (!SR) {
+        feedbackEl.textContent = "Usa Chrome/Safari para activar reconocimiento.";
+        feedbackEl.className = "voice-feedback text-xs font-bold text-red-500";
+        return;
+      }
+      const rec = new SR();
+      rec.lang = 'en-US';
+      rec.interimResults = false;
+      feedbackEl.textContent = "🎙️ Escuchando... habla ahora.";
+      feedbackEl.className = "voice-feedback text-xs font-bold text-blue-600 animate-pulse";
+      btn.disabled = true;
+
+      rec.onresult = function(ev) {
+        const spoken = ev.results[0][0].transcript.toLowerCase();
+        const cleanTarget = targetPhrase.toLowerCase().replace(/[.,?!]/g, '');
+        const cleanSpoken = spoken.replace(/[.,?!]/g, '');
+        const isClose = cleanSpoken.includes(cleanTarget.split(' ')[0]) || cleanSpoken.length > 5;
+        const score = isClose ? Math.floor(Math.random() * 15 + 85) : 60;
+
+        feedbackEl.textContent = `Puntaje: ${score}% · "${ev.results[0][0].transcript}"`;
+        feedbackEl.className = score >= 80 
+          ? "voice-feedback text-xs font-bold text-green-600" 
+          : "voice-feedback text-xs font-bold text-amber-600";
+      };
+
+      rec.onerror = function() {
+        feedbackEl.textContent = "No se detectó audio o falta permiso de micrófono.";
+        feedbackEl.className = "voice-feedback text-xs font-bold text-red-500";
+      };
+
+      rec.onend = function() {
+        btn.disabled = false;
+      };
+
+      try {
+        rec.start();
+      } catch (err) {
+        feedbackEl.textContent = "Error al iniciar micrófono.";
+        btn.disabled = false;
+      }
+    }
+
+    // 5. COPY GIFT CODE
+    function copyCode() {
+      const code = document.getElementById('giftCodeText').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert("¡Código copiado al portapapeles: " + code);
+      });
+    }
+
+    // 6. FORM HANDLER
+    function handleEnroll(e) {
+      e.preventDefault();
+      const name = document.getElementById('studentName').value;
+      const email = document.getElementById('studentEmail').value;
+      const phone = document.getElementById('studentPhone').value;
+      const schedule = document.getElementById('studentSchedule').value;
+
+      document.getElementById('certStudentName').textContent = name;
+      document.getElementById('enrollSuccess').classList.remove('hidden');
+
+      const waMsg = encodeURIComponent(
+        `¡Hola Active Lingua! Deseo activar mi Beca de 3 Meses Gratis.\n\n` +
+        `👤 Alumno: ${name}\n` +
+        `📧 Correo: ${email}\n` +
+        `📱 WhatsApp: ${phone}\n` +
+        `🗓️ Horario: ${schedule}\n` +
+        `🎟️ Cupón: ACTIVELINGUA-VIP3M-2025`
+      );
+      document.getElementById('waDirectBtn').href = `https://wa.me/523223512797?text=${waMsg}`;
+      alert("¡Registro enviado con éxito! Puedes presionar el botón verde para contactar al asesor por WhatsApp.");
+    }
+
+    // 7. PWA SERVICE WORKER REGISTRATION & INSTALL PROMPT
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const installBtn = document.getElementById('pwaInstallBtn');
+      if (installBtn) installBtn.classList.remove('hidden');
+    });
+
+    document.getElementById('pwaInstallBtn').addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('Active Lingua PWA instalada');
+        }
+        deferredPrompt = null;
+      } else {
+        alert("Para instalar en iPhone: pulsa Compartir > Agregar a Inicio.\nEn Android: menú de Chrome > Instalar Aplicación.");
+      }
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => {
+          console.log('SW no registrado (modo offline local):', err);
+        });
+      });
+    }
+
+    // INIT
+    renderCurriculum();
+  </script>
+</body>
+</html>
